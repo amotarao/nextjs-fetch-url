@@ -12,6 +12,11 @@ const client = createClient({
 export default async function Home() {
   const { text } = await client.getObject({
     endpoint: 'text',
+    customRequestInit: {
+      next: {
+        tags: ['text'],
+      },
+    },
   });
 
   return (
